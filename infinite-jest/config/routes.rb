@@ -1,4 +1,6 @@
 InfiniteJest::Application.routes.draw do
+  resources :applicants
+
   get "home/index"
   root :to => "home#index"
 
