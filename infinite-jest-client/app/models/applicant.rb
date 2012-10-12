@@ -1,6 +1,4 @@
-class Applicant < ActiveResource::Base
-  self.site = "http://localhost:3001"
-  self.format = :json
-
-  
+class Applicant 
+  extend ActiveModel::Naming
+  attr_accessor :id, :firstname, :lastname, :age, :claimDate, :model_name
 end

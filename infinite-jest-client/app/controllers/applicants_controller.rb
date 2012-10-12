@@ -16,11 +16,19 @@ class ApplicantsController < ApplicationController
   # GET /applicants/1
   # GET /applicants/1.json
   def show
+    resource = RestClient.get 'http://localhost:3001/applicants/1.json'
+    resource_hash = JSON.parse(resource)
+    p 'RESOURCE: ', resource_hash
     
-    @applicant = Applicant.find(params[:id])
+    @applicant = Applicant.new
+    @applicant.firstname = resource_hash['firstname']
+    @applicant.lastname = resource_hash['lastname']
+    @applicant.age = resource_hash['age']
+    @applicant.claimDate = resource_hash['claimDate']
+    @applicant.id = resource_hash['id']
     
     respond_to do |format|
-      format.html # show.html.erb
+      format.html #show.html.erb
       format.json { render json: @applicant }
     end
   end
@@ -29,12 +37,8 @@ class ApplicantsController < ApplicationController
   # GET /applicants/new.json
   def new
     @applicant = Applicant.new
-    @applicant.firstname = "Joe"
-    @applicant.lastname = "Bloggs"
-    @applicant.age = "20"
-    @applicant.date = Date.today.to_s
     respond_to do |format|
-      format.html # new.html.erb
+      format.html #new.html.erb
       format.json { render json: @applicant }
     end
   end
