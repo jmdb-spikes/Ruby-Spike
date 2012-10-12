@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @applicant.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @applicant.lastname %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @applicant.age %>
+</p>
+
+<p>
+  <b>Claimdate:</b>
+  <%= @applicant.claimDate %>
+</p>
+
+
+<%= link_to 'Edit', edit_applicant_path(@applicant) %> |
+<%= link_to 'Back', applicants_path %>
