@@ -26,13 +26,13 @@ class Applicant
   #end
 
   def self.find(id) 
-    json = RestClient.get 'http://localhost:3001/applicants/'+id+'.json'#TODO, :accept => :json
+    json = RestClient.get 'http://localhost:3001/applicants/'+id+'.json', :content_type => :json, :accept => :json
     resource = JSON.parse(json)
     return Applicant.new(resource)
   end
   
   def self.all
-     json = RestClient.get 'http://localhost:3001/applicants.json'#TODO, :accept => :json
+     json = RestClient.get 'http://localhost:3001/applicants.json', :content_type => :json, :accept => :json
      resources = JSON.parse(json)
     @applicants = []
     resources.each { |resource| 
@@ -48,10 +48,7 @@ class Applicant
       when 201
         true
       when 422
-        errors = JSON.parse(response.to_str)
-        errors.each{ |key, value|
-          self.errors.add(key, value)
-        }
+        parse_errors(response)
         false
       else
         response.return!(request, result, &block)
@@ -60,30 +57,32 @@ class Applicant
   end
 
   def update_attributes(params)
-    p params
+    merge_attributes(params)
 
-    params.each do |name, value|
-      send("#{name}=", value)
-    end
-
-    p self.to_json
-
-    p 'http://localhost:3001/applicants/'+self.id.to_s+'.json'
-
-    response = RestClient.put('http://localhost:3001/applicants/'+self.id.to_s+'.json', self.to_json, :content_type => :json, :accept => :json) { |response, request, result, &block|
+    RestClient.put('http://localhost:3001/applicants/'+self.id.to_s+'.json', self.to_json, :content_type => :json, :accept => :json) { |response, request, result, &block|
       case response.code
       when 200
         true
       when 422
-        errors = JSON.parse(response.to_str)
-        errors.each{ |key, value|
-          self.errors.add(key, value)
-        }
+        parse_errors(response)
         false
       else
         response.return!(request, result, &block)
       end
     }
-
   end
+
+  def parse_errors(response)
+    errors = JSON.parse(response.to_str)
+    errors.each { |key, value|
+      self.errors.add(key, value)
+    }
+  end
+
+  def merge_attributes(attributes)
+    attributes.each do |name, value|
+      send("#{name}=", value)
+    end
+  end
+
 end
