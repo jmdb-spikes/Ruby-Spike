@@ -31,7 +31,7 @@
       <file leaf-file-name="applicants_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/applicants_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="28" selection-start="571" selection-end="595" vertical-scroll-proportion="0.3517588">
+            <state line="75" column="22" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.57788944">
               <folding />
             </state>
           </provider>
@@ -472,7 +472,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/applicants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="28" selection-start="571" selection-end="595" vertical-scroll-proportion="0.3517588">
+        <state line="75" column="22" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.57788944">
           <folding />
         </state>
       </provider>
