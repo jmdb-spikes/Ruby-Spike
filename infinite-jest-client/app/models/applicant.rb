@@ -7,6 +7,8 @@ class Applicant
   
   attr_accessor :id, :firstname, :lastname, :age, :claimDate, :created_at, :updated_at
   
+  persisted = false
+  
   def initialize(attributes = {})
     attributes.each do |name, value|  
       send("#{name}=", value)  
@@ -18,6 +20,7 @@ class Applicant
   end
   
   def persisted?
+    # if id is initialised already then persisted should be true, false otherwise
     true
   end
   
