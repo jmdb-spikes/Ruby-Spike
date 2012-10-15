@@ -7,6 +7,8 @@ class Applicant
 
   attr_accessor :id, :firstname, :lastname, :age, :claimDate, :created_at, :updated_at
 
+  #TODO: refactor resource URL generation
+
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
@@ -21,10 +23,6 @@ class Applicant
     self.id != nil
   end
 
-  #def to_key
-  #  "#{id}="
-  #end
-
   def self.find(id)
     json = RestClient.get 'http://localhost:3001/applicants/'+id+'.json', :content_type => :json, :accept => :json
     resource = JSON.parse(json)
@@ -34,15 +32,10 @@ class Applicant
   def self.all
     json = RestClient.get 'http://localhost:3001/applicants.json', :content_type => :json, :accept => :json
     resources = JSON.parse(json)
-    @applicants = []
-    resources.each { |resource|
-      @applicants.push(Applicant.new(resource))
-    }
-    return @applicants
+    return resources.map {|resource| Applicant.new(resource)}
   end
 
   def save
-    p self
     RestClient.post('http://localhost:3001/applicants.json', self.to_json, :content_type => :json, :accept => :json) { |response, request, result, &block|
       case response.code
         when 201
@@ -66,6 +59,17 @@ class Applicant
         when 422
           _parse_errors(response)
           false
+        else
+          response.return!(request, result, &block)
+      end
+    }
+  end
+
+  def destroy
+    RestClient.delete('http://localhost:3001/applicants/'+self.id.to_s+'.json', :content_type => :json, :accept => :json) { |response, request, result, &block|
+      case response.code
+        when 204
+          true
         else
           response.return!(request, result, &block)
       end
