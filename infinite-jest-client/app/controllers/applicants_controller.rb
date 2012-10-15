@@ -16,17 +16,8 @@ class ApplicantsController < ApplicationController
   # GET /applicants/1
   # GET /applicants/1.json
   def show
-    resource = RestClient.get 'http://localhost:3001/applicants/1.json'
-    resource_hash = JSON.parse(resource)
-    p 'RESOURCE: ', resource_hash
-    
-    @applicant = Applicant.new
-    @applicant.firstname = resource_hash['firstname']
-    @applicant.lastname = resource_hash['lastname']
-    @applicant.age = resource_hash['age']
-    @applicant.claimDate = resource_hash['claimDate']
-    @applicant.id = resource_hash['id']
-    
+    @applicant = Applicant.find(params[:id])
+        
     respond_to do |format|
       format.html #show.html.erb
       format.json { render json: @applicant }
