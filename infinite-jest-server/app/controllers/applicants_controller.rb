@@ -59,10 +59,6 @@ class ApplicantsController < ApplicationController
   # PUT /applicants/1
   # PUT /applicants/1.json
   def update
-    puts params[:applicant]
-    #params[:applicant].delete :created_at
-    #params[:applicant].delete :updated_at
-    #puts params[:applicant]
     @applicant = Applicant.find(params[:id])
 
     respond_to do |format|

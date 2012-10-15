@@ -1,7 +1,6 @@
 class ApplicantsController < ApplicationController
   #modify these actions to redirect to post
-  
-  
+
   # GET /applicants
   # GET /applicants.json
   def index
@@ -60,21 +59,17 @@ class ApplicantsController < ApplicationController
   def update
     puts params[:applicant]
     @applicant = Applicant.find(params[:id])
+
+    p @applicant
     
-    begin
-      respond_to do |format|
-        if @applicant.update_attributes(params[:applicant])
-          format.html { redirect_to @applicant, notice: 'Applicant was successfully updated.' }
-          format.json { head :no_content }
-        else
-          format.html { render action: "edit" }
-          format.json { render json: @applicant.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @applicant.update_attributes(params[:applicant])
+        format.html { redirect_to @applicant, notice: 'Applicant was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @applicant.errors, status: :unprocessable_entity }
       end
-    rescue => e
-      p e
-      p e.message
-      p "AN ERROR WAS THROWN"
     end
   end
 
