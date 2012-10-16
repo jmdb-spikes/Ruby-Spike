@@ -10,6 +10,8 @@ class Applicant
   #TODO: refactor resource URL generation
 
   def initialize(attributes = {})
+    #TODO to handle dates should translate "claimDate(1i)"=>"2012", "claimDate(2i)"=>"11", "claimDate(3i)"=>"22" to a date field
+
     attributes.each do |name, value|
       send("#{name}=", value)
     end

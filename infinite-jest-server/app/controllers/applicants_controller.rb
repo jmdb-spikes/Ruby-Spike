@@ -61,6 +61,8 @@ class ApplicantsController < ApplicationController
   def update
     @applicant = Applicant.find(params[:id])
 
+    p @applicant
+
     respond_to do |format|
       if @applicant.update_attributes(params[:applicant])
         format.html { redirect_to @applicant, notice: 'Applicant was successfully updated.' }
