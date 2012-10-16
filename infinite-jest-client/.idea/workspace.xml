@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8aad6bf-0e88-4d39-8062-3de648b3cc48" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/applicant.rb" afterPath="$PROJECT_DIR$/app/models/applicant.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/applicants/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/applicants/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../infinite-jest-server/.idea/misc.xml" afterPath="$PROJECT_DIR$/../infinite-jest-server/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../infinite-jest-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../infinite-jest-server/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../infinite-jest-server/app/controllers/applicants_controller.rb" afterPath="$PROJECT_DIR$/../infinite-jest-server/app/controllers/applicants_controller.rb" />
     </list>
     <ignored path="infinite-jest-client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +25,7 @@
       <file leaf-file-name="applicant.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/applicant.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="128" selection-start="475" selection-end="475" vertical-scroll-proportion="0.32846716">
+            <state line="25" column="56" selection-start="669" selection-end="669" vertical-scroll-proportion="0.68430656">
               <folding />
             </state>
           </provider>
@@ -47,7 +43,7 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/applicants/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="19" selection-start="635" selection-end="635" vertical-scroll-proportion="-14.375">
+            <state line="25" column="0" selection-start="656" selection-end="656" vertical-scroll-proportion="-15.625">
               <folding />
             </state>
           </provider>
@@ -818,14 +814,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/applicants/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="19" selection-start="635" selection-end="635" vertical-scroll-proportion="-14.375">
+        <state line="25" column="0" selection-start="656" selection-end="656" vertical-scroll-proportion="-15.625">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/applicant.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="128" selection-start="475" selection-end="475" vertical-scroll-proportion="0.32846716">
+        <state line="25" column="56" selection-start="669" selection-end="669" vertical-scroll-proportion="0.68430656">
           <folding />
         </state>
       </provider>
